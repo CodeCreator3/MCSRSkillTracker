@@ -1,0 +1,16 @@
+Speedrun,-1,0
+Overworld,0,0
+Nether,0,0
+Endgame,0,0
+Village,1,0
+Desert Temple,1,0
+Shipwreck,1,0
+Buried Treasure,1,0
+Ruined Portal,1,0
+Terrain to Bastion,2,0
+Bastion,2,0
+Terrain to Fortress,2,0
+Fortress,2,0
+Blind,2,0
+Stronghold,3,0
+End,3,0
