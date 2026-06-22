@@ -16,16 +16,93 @@ Stronghold,3,2
 End,3,3
 Village Crafts,4,2
 Overworld Portal,4,3
+DT Looting,5,2
+Overworld Portral,5,0
 Island Crafts,6,3
+Hotbar Shifting,6,2
 2x1 Portal,6,2
+Chest Looting,7,2
+BT Crafts,7,2
+Hotbar Shifting,7,2
+2x1 Portal,7,2
+RP Completions,8,1
+Speed Bridging,9,2
 Route,10,3
 Bastion Crafts,10,2
-Spawner,12,0
-Precrafts,12,0
-Navigation/Preemptive,14,0
-Portal Room,14,0
+Bottom Treasure,10,0
+Pearl Hang,10,2
+Spawner,12,2
+Precrafts,12,4
+Eye Measure,12,2
+Navigation/Preemptive,14,2
+Portal Room,14,2
 Zero Cycle,15,2
 One Cycle,15,4
-Blaze Bed,22,0
-Blaze TNT,22,0
-Exit Buried,26,2
+Straight,28,2
+Diagonal,28,2
+Staircase,28,2
+Diagonal Staircase,28,2
+Housing,29,3
+Bridge,29,3
+Treasure,29,3
+Housing,29,2
+Blaze Bed,33,2
+Blaze TNT,33,1
+PR Hunger Reset,37,0
+Portal Completion,37,0
+Exit Buried,38,2
+Front,38,2
+Back,38,2
+Plus 1,38,2
+Top-Down,44,3
+Manhunt,44,2
+TNT Chalice,45,2
+Donkey Kong,45,3
+Soog,45,3
+Jimbo James,45,0
+Traditional,46,3
+TNT Variant,46,0
+Triple,47,2
+Gap,47,2
+Diagonal,53,2
+Straight,53,2
+Diagonal,54,2
+Straight,54,2
+Traditional,56,3
+Lava Housing,56,0
+Dry,57,2
+Wet,57,1
+Lava Housing,57,0
+Chalice Craft,58,2
+Middle Triple,64,3
+Left Triple,64,2
+Right Triple,64,2
+Traditional,65,3
+Beef Salad,65,0
+Crispy,65,0
+Small Boy,66,2
+Small Cage,66,2
+Tall Cage,66,2
+M85,66,2
+M88,66,2
+M91,66,2
+T94,66,2
+T97,66,2
+T100,66,2
+Tall Boy,66,2
+Small Boy,68,2
+Small Cage,68,2
+Tall Cage,68,2
+M85,68,2
+M88,68,2
+M91,68,2
+T94,68,2
+T97,68,2
+T100,68,2
+Tall Boy,68,2
+To Gap,77,0
+To Middle Double,77,2
+To Middle Single,77,2
+To Gap,78,0
+To Middle Double,78,2
+To Middle Single,78,2
