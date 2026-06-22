@@ -1,6 +1,14 @@
+import java.awt.Color;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 import java.util.Queue;
 import java.util.Scanner;
 
@@ -36,6 +44,52 @@ public class Tree {
         }
     }
 
+    public Node getRoot() {
+        return root;
+    }
+
+    public Node getNodeByPath(int[] path) {
+        Node current = root;
+        for (int index : path) {
+            if (current == null) {
+                return null;
+            }
+            if (index < 0 || index >= current.getChildren().size()) {
+                return null;
+            }
+            current = current.getChildren().get(index);
+        }
+        return current;
+    }
+
+    public void saveTree() throws IOException {
+        if (root == null) {
+            return;
+        }
+        Map<Node, Integer> ids = new HashMap<>();
+        Queue<Node> queue = new LinkedList<>();
+        queue.add(root);
+        int index = 0;
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            ids.put(current, index++);
+            queue.addAll(current.getChildren());
+        }
+
+        queue.clear();
+        queue.add(root);
+        ArrayList<String> lines = new ArrayList<>();
+        while (!queue.isEmpty()) {
+            Node current = queue.poll();
+            int parentId = current.getParent() == null ? -1 : ids.getOrDefault(current.getParent(), -1);
+            lines.add(current.getSkill() + "," + parentId + "," + current.getSkillLevel().ordinal());
+            queue.addAll(current.getChildren());
+        }
+
+        Path file = Path.of("data.txt");
+        Files.write(file, lines, StandardCharsets.UTF_8);
+    }
+
     private Node findNode(int id) {
         Queue<Node> queue = new LinkedList<>();
         queue.add(root);
@@ -59,12 +113,30 @@ public class Tree {
         }
     }
 
-    public enum SkillLevel {
-        COAL,
-        IRON,
-        GOLD,
-        EMERALD,
-        DIAMOND,
-        NETHERITE
+    public enum SkillLevel{
+        
+        COAL(new Color(61, 61, 61)),
+        IRON(new Color(162, 219, 213)),
+        GOLD(new Color(255, 196, 0)),
+        EMERALD(new Color(0, 165, 33)),
+        DIAMOND(new Color(61, 236, 236)),
+        NETHERITE(new Color(129, 0, 176));
+        private Color color;
+        private SkillLevel(Color color){
+            this.color = color;
+        };
+        public Color getColor(){
+            return color;
+        }
+
+        public SkillLevel next() {
+            SkillLevel[] values = values();
+            return values[(this.ordinal() + 1) % values.length];
+        }
+
+        public SkillLevel prev() {
+            SkillLevel[] values = values();
+            return values[(this.ordinal() - 1 + values.length) % values.length];
+        }
     }
 }

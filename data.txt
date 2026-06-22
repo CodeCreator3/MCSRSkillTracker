@@ -1,16 +1,31 @@
-Speedrun,-1,0
-Overworld,0,0
-Nether,0,0
-Endgame,0,0
-Village,1,0
-Desert Temple,1,0
-Shipwreck,1,0
-Buried Treasure,1,0
-Ruined Portal,1,0
-Terrain to Bastion,2,0
-Bastion,2,0
-Terrain to Fortress,2,0
-Fortress,2,0
-Blind,2,0
-Stronghold,3,0
-End,3,0
+Speedrun,-1,3
+Overworld,0,3
+Nether,0,2
+Endgame,0,3
+Village,1,2
+Desert Temple,1,3
+Shipwreck,1,3
+Buried Treasure,1,2
+Ruined Portal,1,3
+Terrain to Bastion,2,3
+Bastion,2,3
+Terrain to Fortress,2,2
+Fortress,2,3
+Blind,2,2
+Stronghold,3,2
+End,3,3
+Village Crafts,4,2
+Overworld Portal,4,3
+Island Crafts,6,3
+2x1 Portal,6,2
+Route,10,3
+Bastion Crafts,10,2
+Spawner,12,0
+Precrafts,12,0
+Navigation/Preemptive,14,0
+Portal Room,14,0
+Zero Cycle,15,2
+One Cycle,15,4
+Blaze Bed,22,0
+Blaze TNT,22,0
+Exit Buried,26,2

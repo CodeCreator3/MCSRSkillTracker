@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skill Tree Visualizer</title>
+  <style>
+    html, body { margin: 0; min-height: 100%; }
+    body {
+      font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+      font-weight: 700;
+      color: #fff;
+      background: url('/assets/background.png') center/cover no-repeat scroll;
+      overflow: hidden;
+    }
+    #root {
+      width: 100vw;
+      height: 100vh;
+      background: rgba(0, 0, 0, 0.22);
+      box-sizing: border-box;
+    }
+    #canvas {
+      cursor: grab;
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    #canvas:active {
+      cursor: grabbing;
+    }
+    line.edge {
+      stroke: rgba(255, 255, 255, 0.75);
+      stroke-width: 3;
+      opacity: 0.85;
+    }
+    text {
+      font: 700 14px "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
+      pointer-events: none;
+    }
+    .node-actions {
+      position: absolute;
+      display: grid;
+      grid-auto-flow: column;
+      gap: 4px;
+      padding: 6px;
+      border-radius: 999px;
+      background: rgba(0, 0, 0, 0.72);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.24);
+      z-index: 10;
+      pointer-events: auto;
+      transition: opacity 0.15s ease;
+      transform: translateX(-50%);
+      white-space: nowrap;
+    }
+    .node-actions.hidden {
+      display: none;
+    }
+    .node-actions button {
+      min-width: 36px;
+      padding: 6px 10px;
+      border: none;
+      border-radius: 999px;
+      font: 700 11px "Segoe UI", "Inter", Arial, sans-serif;
+      color: #fff;
+      background: rgba(255, 255, 255, 0.14);
+      cursor: pointer;
+      transition: background 0.15s ease;
+    }
+    .node-actions button:hover {
+      background: rgba(255, 255, 255, 0.24);
+    }
+  </style>
+</head>
+<body>
+  <div id="root">
+    <svg id="canvas"></svg>
+    <div id="node-actions" class="node-actions hidden">
+      <button id="move-left">◀</button>
+      <button id="add-child">+</button>
+      <button id="rename-node">✏</button>
+      <button id="move-right">▶</button>
+      <button id="delete-node">🗑</button>
+    </div>
+  </div>
+  <script>
+    fetch('/tree.json')
+      .then(r => r.json())
+      .then(renderTree)
+      .catch(err => console.error('Error loading tree:', err));
+
+    let hoveredNode = null;
+    let svgMetrics = null;
+    let hideTimeout = null;
+    let zoom = 1;
+    let minZoom = 0.5;
+    let panX = 0;
+    let panY = 0;
+    let isDragging = false;
+    let lastMouseX = 0;
+    let lastMouseY = 0;
+    const actions = document.getElementById('node-actions');
+    const moveLeftButton = document.getElementById('move-left');
+    const moveRightButton = document.getElementById('move-right');
+    const addChildButton = document.getElementById('add-child');
+    const renameNodeButton = document.getElementById('rename-node');
+    const deleteNodeButton = document.getElementById('delete-node');
+    const svg = document.getElementById('canvas');
+    let transformGroup = null;
+
+    moveLeftButton.addEventListener('click', () => { if (hoveredNode) mutateNode('moveLeft', hoveredNode.path); });
+    moveRightButton.addEventListener('click', () => { if (hoveredNode) mutateNode('moveRight', hoveredNode.path); });
+    addChildButton.addEventListener('click', () => {
+      if (!hoveredNode) return;
+      const name = prompt('New child skill name');
+      if (name && name.trim()) {
+        mutateNode('addChild', hoveredNode.path, name.trim());
+      }
+    });
+    renameNodeButton.addEventListener('click', () => {
+      if (!hoveredNode) return;
+      const name = prompt('Rename skill', hoveredNode.label);
+      if (name && name.trim()) {
+        mutateNode('rename', hoveredNode.path, name.trim());
+      }
+    });
+    deleteNodeButton.addEventListener('click', () => {
+      if (!hoveredNode) return;
+      if (confirm('Delete this skill and all children?')) {
+        mutateNode('delete', hoveredNode.path);
+      }
+    });
+    actions.addEventListener('mouseenter', () => { if (hideTimeout) clearTimeout(hideTimeout); });
+    actions.addEventListener('mouseleave', scheduleHideActions);
+
+    svg.addEventListener('wheel', event => {
+      event.preventDefault();
+      const rect = svg.getBoundingClientRect();
+      const mouseX = event.clientX - rect.left;
+      const mouseY = event.clientY - rect.top;
+      
+      // Convert screen coordinates to SVG viewBox coordinates
+      const svgX = (mouseX / rect.width) * svgMetrics.viewWidth;
+      const svgY = (mouseY / rect.height) * svgMetrics.viewHeight;
+      
+      // Convert to world coordinates (accounting for current pan and zoom)
+      const worldX = (svgX - panX) / zoom;
+      const worldY = (svgY - panY) / zoom;
+      
+      // Apply zoom
+      const zoomDelta = event.deltaY > 0 ? 0.9 : 1.1;
+      zoom *= zoomDelta;
+      zoom = Math.max(minZoom, Math.min(3, zoom));
+      
+      // Adjust pan so the point under the cursor stays there
+      panX = svgX - worldX * zoom;
+      panY = svgY - worldY * zoom;
+      
+      updateTransform();
+    });
+
+    svg.addEventListener('mousedown', event => {
+      isDragging = true;
+      lastMouseX = event.clientX;
+      lastMouseY = event.clientY;
+    });
+
+    document.addEventListener('mousemove', event => {
+      if (!isDragging) return;
+      const deltaX = event.clientX - lastMouseX;
+      const deltaY = event.clientY - lastMouseY;
+      panX += deltaX;
+      panY += deltaY;
+      lastMouseX = event.clientX;
+      lastMouseY = event.clientY;
+      updateTransform();
+    });
+
+    document.addEventListener('mouseup', () => {
+      isDragging = false;
+    });
+
+    function updateTransform() {
+      if (transformGroup) {
+        transformGroup.setAttribute('transform', `translate(${panX}, ${panY}) scale(${zoom})`);
+      }
+    }
+
+    function renderTree(data) {
+      hoveredNode = null;
+      actions.classList.add('hidden');
+      const padding = 20;
+      const nodeWidth = 130;
+      const nodeHeight = 130;
+      const nodeRadius = 65;
+      const layout = computePositions(data);
+      const width = layout.maxX + nodeWidth + padding;
+      const height = layout.maxY + nodeHeight + padding;
+      svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
+      svg.innerHTML = '';
+      
+      minZoom = Math.min(window.innerWidth / width, window.innerHeight / height);
+      zoom = Math.max(zoom, minZoom);
+      
+      transformGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
+      transformGroup.setAttribute('transform', `translate(${panX}, ${panY}) scale(${zoom})`);
+      svg.appendChild(transformGroup);
+      
+      svgMetrics = { rect: svg.getBoundingClientRect(), viewWidth: width, viewHeight: height };
+
+      layout.nodes.forEach(node => {
+        if (node.parent) {
+          const line = document.createElementNS('http://www.w3.org/2000/svg', 'line');
+          line.setAttribute('class', 'edge');
+          line.setAttribute('x1', node.parent.x + nodeRadius);
+          line.setAttribute('y1', node.parent.y + nodeRadius);
+          line.setAttribute('x2', node.x + nodeRadius);
+          line.setAttribute('y2', node.y + nodeRadius);
+          transformGroup.appendChild(line);
+        }
+      });
+
+      layout.nodes.forEach(node => {
+        const cx = node.x + nodeRadius;
+        const cy = node.y + nodeRadius;
+        const circle = document.createElementNS('http://www.w3.org/2000/svg', 'circle');
+        circle.setAttribute('class', 'node');
+        circle.setAttribute('cx', cx);
+        circle.setAttribute('cy', cy);
+        circle.setAttribute('r', nodeRadius);
+        circle.setAttribute('fill', node.color);
+        circle.style.cursor = 'pointer';
+        transformGroup.appendChild(circle);
+
+        circle.addEventListener('mouseenter', () => {
+          if (hideTimeout) clearTimeout(hideTimeout);
+          showActions(node, cx, cy);
+        });
+        circle.addEventListener('mouseleave', event => {
+          if (!actions.contains(event.relatedTarget)) {
+            scheduleHideActions();
+          }
+        });
+        circle.addEventListener('click', event => {
+          event.stopPropagation();
+          mutateNode('cycle', node.path);
+        });
+        circle.addEventListener('contextmenu', event => {
+          event.preventDefault();
+          event.stopPropagation();
+          mutateNode('cyclePrev', node.path);
+        });
+
+        const lines = wrapLabel(node.label, 16);
+        const text = document.createElementNS('http://www.w3.org/2000/svg', 'text');
+        text.setAttribute('x', cx);
+        text.setAttribute('y', cy - ((lines.length - 1) * 10));
+        text.setAttribute('text-anchor', 'middle');
+        text.setAttribute('fill', contrastColor(node.color));
+        text.setAttribute('font-weight', '700');
+
+        lines.forEach((line, index) => {
+          const tspan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
+          tspan.setAttribute('x', cx);
+          tspan.setAttribute('dy', index === 0 ? '0em' : '1.3em');
+          tspan.textContent = line;
+          text.appendChild(tspan);
+        });
+        transformGroup.appendChild(text);
+      });
+    }
+
+    function contrastColor(hex) {
+      const rgb = hex.replace('#', '').match(/.{2}/g).map(h => parseInt(h, 16));
+      const brightness = (rgb[0] * 299 + rgb[1] * 587 + rgb[2] * 114) / 1000;
+      return brightness > 140 ? '#111' : '#fff';
+    }
+
+    function showActions(node, cx, cy) {
+      hoveredNode = node;
+      if (!svgMetrics) {
+        actions.classList.add('hidden');
+        return;
+      }
+      const rect = svgMetrics.rect;
+      const x = rect.left + (cx / svgMetrics.viewWidth) * rect.width;
+      const y = rect.top + (cy / svgMetrics.viewHeight) * rect.height;
+      actions.style.left = `${x}px`;
+      actions.style.top = `${y + 30}px`;
+      actions.classList.remove('hidden');
+      moveLeftButton.style.display = node.siblingIndex > 0 ? 'inline-flex' : 'none';
+      moveRightButton.style.display = node.path.length > 0 && node.siblingIndex < node.siblingCount - 1 ? 'inline-flex' : 'none';
+    }
+
+    function scheduleHideActions() {
+      if (hideTimeout) clearTimeout(hideTimeout);
+      hideTimeout = setTimeout(() => {
+        hoveredNode = null;
+        actions.classList.add('hidden');
+        hideTimeout = null;
+      }, 1000);
+    }
+
+    function hideActions() {
+      if (hideTimeout) clearTimeout(hideTimeout);
+      hoveredNode = null;
+      actions.classList.add('hidden');
+      hideTimeout = null;
+    }
+
+    function mutateNode(action, path, name) {
+      const body = new URLSearchParams();
+      body.append('action', action);
+      body.append('path', path.join(','));
+      if (name) body.append('name', name);
+
+      fetch('/save', {
+        method: 'POST',
+        body,
+      })
+        .then(response => response.json())
+        .then(renderTree)
+        .then(hideActions)
+        .catch(err => console.error('Mutation failed:', err));
+    }
+
+    function wrapLabel(label, maxChars) {
+      const words = label.split(' ').filter(Boolean);
+      if (words.length <= 1) {
+        return [label];
+      }
+
+      const midpoint = Math.ceil(words.length / 2);
+      const firstLine = words.slice(0, midpoint).join(' ');
+      const secondLine = words.slice(midpoint).join(' ');
+      if (firstLine.length > maxChars || secondLine.length > maxChars) {
+        const joined = words.join(' ');
+        const half = Math.ceil(joined.length / 2);
+        const splitIndex = Math.max(joined.lastIndexOf(' ', half), joined.indexOf(' ', 1));
+        return [joined.slice(0, splitIndex).trim(), joined.slice(splitIndex).trim()];
+      }
+      return [firstLine, secondLine];
+    }
+
+    function computePositions(root) {
+      const spacingX = 260;
+      const spacingY = 140;
+      const nodes = [];
+      let maxX = 0;
+      let maxY = 0;
+
+      function visit(node, depth, offsetUnits, parent, path, siblingIndex, siblingCount) {
+        const children = node.children || [];
+        let subtreeUnits = children.length ? 0 : 1;
+        const copy = { ...node, parent, x: 0, y: 0, path, siblingIndex, siblingCount };
+
+        if (children.length > 0) {
+          let childOffset = offsetUnits;
+          for (let i = 0; i < children.length; i++) {
+            const child = children[i];
+            const childPath = [...path, i];
+            const childWidth = visit(child, depth + 1, childOffset, copy, childPath, i, children.length);
+            subtreeUnits += childWidth;
+            childOffset += childWidth;
+          }
+        }
+
+        const centerUnits = offsetUnits + (subtreeUnits - 1) / 2;
+        copy.x = centerUnits * spacingX + 24;
+        copy.y = depth * spacingY + 24;
+        nodes.push(copy);
+        maxX = Math.max(maxX, copy.x);
+        maxY = Math.max(maxY, copy.y);
+        return subtreeUnits;
+      }
+
+      visit(root, 0, 0, null, [], 0, 1);
+      return { nodes, maxX, maxY };
+    }
+  </script>
+</body>
+</html>
