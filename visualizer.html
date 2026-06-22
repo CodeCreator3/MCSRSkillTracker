@@ -12,18 +12,30 @@
       color: #fff;
       background: url('/assets/background.png') center/cover no-repeat scroll;
       overflow: hidden;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
     #root {
       width: 100vw;
       height: 100vh;
       background: rgba(0, 0, 0, 0.22);
       box-sizing: border-box;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
     #canvas {
       cursor: grab;
       width: 100%;
       height: 100%;
       display: block;
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
     }
     #canvas:active {
       cursor: grabbing;
@@ -149,7 +161,7 @@
       // Apply zoom
       const zoomDelta = event.deltaY > 0 ? 0.9 : 1.1;
       zoom *= zoomDelta;
-      zoom = Math.max(minZoom, Math.min(3, zoom));
+      zoom = Math.max(minZoom, Math.min(6, zoom));
       
       // Adjust pan so the point under the cursor stays there
       panX = svgX - worldX * zoom;
@@ -168,8 +180,8 @@
       if (!isDragging) return;
       const deltaX = event.clientX - lastMouseX;
       const deltaY = event.clientY - lastMouseY;
-      panX += deltaX;
-      panY += deltaY;
+      panX += deltaX * 7;
+      panY += deltaY * 7;
       lastMouseX = event.clientX;
       lastMouseY = event.clientY;
       updateTransform();
@@ -233,7 +245,7 @@
 
         circle.addEventListener('mouseenter', () => {
           if (hideTimeout) clearTimeout(hideTimeout);
-          showActions(node, cx, cy);
+          showActions(node, circle);
         });
         circle.addEventListener('mouseleave', event => {
           if (!actions.contains(event.relatedTarget)) {
@@ -275,17 +287,13 @@
       return brightness > 140 ? '#111' : '#fff';
     }
 
-    function showActions(node, cx, cy) {
+    function showActions(node, circle) {
       hoveredNode = node;
-      if (!svgMetrics) {
-        actions.classList.add('hidden');
-        return;
-      }
-      const rect = svgMetrics.rect;
-      const x = rect.left + (cx / svgMetrics.viewWidth) * rect.width;
-      const y = rect.top + (cy / svgMetrics.viewHeight) * rect.height;
+      const rect = circle.getBoundingClientRect();
+      const x = rect.left + rect.width / 2;
+      const y = rect.top + rect.height;
       actions.style.left = `${x}px`;
-      actions.style.top = `${y + 30}px`;
+      actions.style.top = `${y - 10}px`;
       actions.classList.remove('hidden');
       moveLeftButton.style.display = node.siblingIndex > 0 ? 'inline-flex' : 'none';
       moveRightButton.style.display = node.path.length > 0 && node.siblingIndex < node.siblingCount - 1 ? 'inline-flex' : 'none';
