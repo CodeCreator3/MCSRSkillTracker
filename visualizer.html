@@ -1,11 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Skill Tree Visualizer</title>
   <style>
-    html, body { margin: 0; min-height: 100%; }
+    html,
+    body {
+      margin: 0;
+      min-height: 100%;
+    }
+
     body {
       font-family: "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
       font-weight: 700;
@@ -17,6 +23,7 @@
       -moz-user-select: none;
       -ms-user-select: none;
     }
+
     #root {
       width: 100vw;
       height: 100vh;
@@ -27,6 +34,7 @@
       -moz-user-select: none;
       -ms-user-select: none;
     }
+
     #canvas {
       cursor: grab;
       width: 100%;
@@ -37,18 +45,22 @@
       -moz-user-select: none;
       -ms-user-select: none;
     }
+
     #canvas:active {
       cursor: grabbing;
     }
+
     line.edge {
       stroke: rgba(255, 255, 255, 0.75);
       stroke-width: 3;
       opacity: 0.85;
     }
+
     text {
       font: 700 14px "Segoe UI", "Inter", "Helvetica Neue", Arial, sans-serif;
       pointer-events: none;
     }
+
     .node-actions {
       position: absolute;
       display: grid;
@@ -64,9 +76,11 @@
       transform: translateX(-50%);
       white-space: nowrap;
     }
+
     .node-actions.hidden {
       display: none;
     }
+
     .node-actions button {
       min-width: 36px;
       padding: 6px 10px;
@@ -78,11 +92,13 @@
       cursor: pointer;
       transition: background 0.15s ease;
     }
+
     .node-actions button:hover {
       background: rgba(255, 255, 255, 0.24);
     }
   </style>
 </head>
+
 <body>
   <div id="root">
     <svg id="canvas"></svg>
@@ -149,24 +165,24 @@
       const rect = svg.getBoundingClientRect();
       const mouseX = event.clientX - rect.left;
       const mouseY = event.clientY - rect.top;
-      
+
       // Convert screen coordinates to SVG viewBox coordinates
       const svgX = (mouseX / rect.width) * svgMetrics.viewWidth;
       const svgY = (mouseY / rect.height) * svgMetrics.viewHeight;
-      
+
       // Convert to world coordinates (accounting for current pan and zoom)
       const worldX = (svgX - panX) / zoom;
       const worldY = (svgY - panY) / zoom;
-      
+
       // Apply zoom
       const zoomDelta = event.deltaY > 0 ? 0.9 : 1.1;
       zoom *= zoomDelta;
-      zoom = Math.max(minZoom, Math.min(6, zoom));
-      
+      zoom = Math.max(minZoom, Math.min(10, zoom));
+
       // Adjust pan so the point under the cursor stays there
       panX = svgX - worldX * zoom;
       panY = svgY - worldY * zoom;
-      
+
       updateTransform();
     });
 
@@ -180,8 +196,8 @@
       if (!isDragging) return;
       const deltaX = event.clientX - lastMouseX;
       const deltaY = event.clientY - lastMouseY;
-      panX += deltaX * 7;
-      panY += deltaY * 7;
+      panX += deltaX * 10;
+      panY += deltaY * 10;
       lastMouseX = event.clientX;
       lastMouseY = event.clientY;
       updateTransform();
@@ -209,14 +225,14 @@
       const height = layout.maxY + nodeHeight + padding;
       svg.setAttribute('viewBox', '0 0 ' + width + ' ' + height);
       svg.innerHTML = '';
-      
+
       minZoom = Math.min(window.innerWidth / width, window.innerHeight / height);
       zoom = Math.max(zoom, minZoom);
-      
+
       transformGroup = document.createElementNS('http://www.w3.org/2000/svg', 'g');
       transformGroup.setAttribute('transform', `translate(${panX}, ${panY}) scale(${zoom})`);
       svg.appendChild(transformGroup);
-      
+
       svgMetrics = { rect: svg.getBoundingClientRect(), viewWidth: width, viewHeight: height };
 
       layout.nodes.forEach(node => {
@@ -386,4 +402,5 @@
     }
   </script>
 </body>
+
 </html>

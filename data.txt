@@ -1,4 +1,4 @@
-Speedrun,-1,3
+Minecraft Speedrun,-1,3
 Overworld,0,3
 Nether,0,2
 Endgame,0,3
@@ -30,6 +30,7 @@ F&S Craft,7,3
 RP Completions,8,1
 Speed Bridging,9,2
 Boat Crawl,9,0
+Moving Boat Clutch,9,0
 Route,10,3
 Bastion Crafts,10,2
 Bottom Treasure,10,0
@@ -45,10 +46,14 @@ Open Portal,13,0
 Navigation/Preemptive,14,2
 Portal Room,14,2
 One Cycle,15,4
+damageless one shot,15,0
 Zero Cycle,15,2
 one deep,17,0
 two deep,17,0
 Woodlight,17,0
+Blacksmith Portal,17,0
+Regular,18,0
+With Sand,18,0
 one deep,19,2
 two deep,19,2
 Woodlight,19,0
@@ -56,67 +61,74 @@ Straight,30,2
 Diagonal,30,2
 Staircase,30,2
 Diagonal Staircase,30,2
-Housing,32,3
-Bridge,32,3
-Treasure,32,3
-Housing,32,2
-Blaze Bed,36,2
-Blaze TNT,36,1
-PR Hunger Reset,45,0
-Portal Completion,45,0
-Exit Buried,47,2
-Front,47,2
-Back,47,2
-Plus 1,47,2
-Top-Down,58,3
-Manhunt,58,2
-TNT Chalice,59,2
-Donkey Kong,59,3
-Soog,59,3
-Jimbo James,59,0
-Traditional,60,3
-TNT Variant,60,0
-Triple,61,2
-Gap,61,2
-Diagonal,67,2
-Straight,67,2
-Diagonal,68,2
-Straight,68,2
-Traditional,70,3
-Lava Housing,70,0
-Dry,71,2
-Wet,71,1
-Lava Housing,71,0
-Chalice Craft,72,2
-Middle Triple,78,3
-Left Triple,78,2
-Right Triple,78,2
-Traditional,79,3
-Beef Salad,79,0
-Crispy,79,0
-Small Boy,80,2
-Small Cage,80,2
-Tall Cage,80,2
-M85,80,2
-M88,80,2
-M91,80,2
-T94,80,2
-T97,80,2
-T100,80,2
-Tall Boy,80,2
-Small Boy,82,2
-Small Cage,82,2
-Tall Cage,82,2
-M85,82,2
-M88,82,2
-M91,82,2
-T94,82,2
-T97,82,2
-T100,82,2
-Tall Boy,82,2
-To Gap,91,0
-To Middle Double,91,2
-To Middle Single,91,2
-To Gap,92,0
-To Middle Double,92,2
-To Middle Single,92,2
+Housing,33,3
+Bridge,33,3
+Treasure,33,3
+Housing,33,2
+Chest Looting,33,0
+bed axe sword,34,0
+golden carrots,34,0
+gapple,34,0
+Blaze Bed,37,2
+Blaze TNT,37,1
+Hallway Hunger Reset,45,0
+PR Hunger Reset,46,0
+Portal Completion,46,0
+Exit Buried,49,2
+Front,49,2
+Back,49,2
+Plus 1,49,2
+Falling Boat Clutch,49,0
+Top-Down,63,3
+Manhunt,63,2
+TNT Chalice,64,2
+Donkey Kong,64,3
+Soog,64,3
+Jimbo James,64,0
+Traditional,65,3
+TNT Variant,65,0
+Glowdar Variant,65,0
+Triple,66,2
+Gap,66,2
+Diagonal,77,2
+Straight,77,2
+Diagonal,78,2
+Straight,78,2
+Traditional,81,3
+Lava Housing,81,0
+Dry,82,2
+Wet,82,1
+Lava Housing,82,0
+Chalice Craft,83,2
+Middle Triple,90,3
+Left Triple,90,2
+Right Triple,90,2
+Traditional,91,3
+Beef Salad,91,0
+Crispy,91,0
+Small Boy,92,2
+Small Cage,92,2
+Tall Cage,92,2
+M85,92,2
+M88,92,2
+M91,92,2
+T94,92,2
+T97,92,2
+T100,92,2
+Tall Boy,92,2
+Small Boy,94,2
+Small Cage,94,2
+Tall Cage,94,2
+M85,94,2
+M88,94,2
+M91,94,2
+T94,94,2
+T97,94,2
+T100,94,2
+Tall Boy,94,2
+To Gap,103,0
+To Middle Double,103,2
+To Middle Single,103,2
+To Gap,104,0
+To Middle Double,104,2
+To Middle Single,104,2
