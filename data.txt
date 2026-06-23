@@ -14,95 +14,109 @@ Fortress,2,3
 Blind,2,2
 Stronghold,3,2
 End,3,3
-Village Crafts,4,2
+Village Crafts,4,5
 Overworld Portal,4,3
 DT Looting,5,2
-Overworld Portral,5,0
+Overworld Portral,5,2
 Island Crafts,6,3
 Hotbar Shifting,6,2
+F&S Craft,6,3
 2x1 Portal,6,2
 Chest Looting,7,2
 BT Crafts,7,2
 Hotbar Shifting,7,2
+F&S Craft,7,3
 2x1 Portal,7,2
 RP Completions,8,1
 Speed Bridging,9,2
+Boat Crawl,9,0
 Route,10,3
 Bastion Crafts,10,2
 Bottom Treasure,10,0
 Pearl Hang,10,2
 Spawner,12,2
-Precrafts,12,4
+Precrafts,12,5
+Open Portal,12,0
 Eye Measure,12,2
+Boat Crawl,13,0
+Buried Portal,13,0
+Bridge Portal,13,0
+Open Portal,13,0
 Navigation/Preemptive,14,2
 Portal Room,14,2
-Zero Cycle,15,2
 One Cycle,15,4
-Straight,28,2
-Diagonal,28,2
-Staircase,28,2
-Diagonal Staircase,28,2
-Housing,29,3
-Bridge,29,3
-Treasure,29,3
-Housing,29,2
-Blaze Bed,33,2
-Blaze TNT,33,1
-PR Hunger Reset,37,0
-Portal Completion,37,0
-Exit Buried,38,2
-Front,38,2
-Back,38,2
-Plus 1,38,2
-Top-Down,44,3
-Manhunt,44,2
-TNT Chalice,45,2
-Donkey Kong,45,3
-Soog,45,3
-Jimbo James,45,0
-Traditional,46,3
-TNT Variant,46,0
-Triple,47,2
-Gap,47,2
-Diagonal,53,2
-Straight,53,2
-Diagonal,54,2
-Straight,54,2
-Traditional,56,3
-Lava Housing,56,0
-Dry,57,2
-Wet,57,1
-Lava Housing,57,0
-Chalice Craft,58,2
-Middle Triple,64,3
-Left Triple,64,2
-Right Triple,64,2
-Traditional,65,3
-Beef Salad,65,0
-Crispy,65,0
-Small Boy,66,2
-Small Cage,66,2
-Tall Cage,66,2
-M85,66,2
-M88,66,2
-M91,66,2
-T94,66,2
-T97,66,2
-T100,66,2
-Tall Boy,66,2
-Small Boy,68,2
-Small Cage,68,2
-Tall Cage,68,2
-M85,68,2
-M88,68,2
-M91,68,2
-T94,68,2
-T97,68,2
-T100,68,2
-Tall Boy,68,2
-To Gap,77,0
-To Middle Double,77,2
-To Middle Single,77,2
-To Gap,78,0
-To Middle Double,78,2
-To Middle Single,78,2
+Zero Cycle,15,2
+one deep,17,0
+two deep,17,0
+Woodlight,17,0
+one deep,19,2
+two deep,19,2
+Woodlight,19,0
+Straight,30,2
+Diagonal,30,2
+Staircase,30,2
+Diagonal Staircase,30,2
+Housing,32,3
+Bridge,32,3
+Treasure,32,3
+Housing,32,2
+Blaze Bed,36,2
+Blaze TNT,36,1
+PR Hunger Reset,45,0
+Portal Completion,45,0
+Exit Buried,47,2
+Front,47,2
+Back,47,2
+Plus 1,47,2
+Top-Down,58,3
+Manhunt,58,2
+TNT Chalice,59,2
+Donkey Kong,59,3
+Soog,59,3
+Jimbo James,59,0
+Traditional,60,3
+TNT Variant,60,0
+Triple,61,2
+Gap,61,2
+Diagonal,67,2
+Straight,67,2
+Diagonal,68,2
+Straight,68,2
+Traditional,70,3
+Lava Housing,70,0
+Dry,71,2
+Wet,71,1
+Lava Housing,71,0
+Chalice Craft,72,2
+Middle Triple,78,3
+Left Triple,78,2
+Right Triple,78,2
+Traditional,79,3
+Beef Salad,79,0
+Crispy,79,0
+Small Boy,80,2
+Small Cage,80,2
+Tall Cage,80,2
+M85,80,2
+M88,80,2
+M91,80,2
+T94,80,2
+T97,80,2
+T100,80,2
+Tall Boy,80,2
+Small Boy,82,2
+Small Cage,82,2
+Tall Cage,82,2
+M85,82,2
+M88,82,2
+M91,82,2
+T94,82,2
+T97,82,2
+T100,82,2
+Tall Boy,82,2
+To Gap,91,0
+To Middle Double,91,2
+To Middle Single,91,2
+To Gap,92,0
+To Middle Double,92,2
+To Middle Single,92,2
