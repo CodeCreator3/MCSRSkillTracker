@@ -16,17 +16,22 @@ Stronghold,3,2
 End,3,3
 Village Crafts,4,5
 Overworld Portal,4,3
+Iron Pick Search Craft,4,3
+Stone Axe Search Craft,4,3
+Hotbar Shuffling,4,0
 DT Looting,5,2
 Overworld Portral,5,2
 Island Crafts,6,3
 Hotbar Shifting,6,2
 F&S Craft,6,3
 2x1 Portal,6,2
+Cave portal,6,0
 Chest Looting,7,2
 BT Crafts,7,2
 Hotbar Shifting,7,2
 F&S Craft,7,3
 2x1 Portal,7,2
+Cave Portal,7,0
 RP Completions,8,1
 Speed Bridging,9,2
 Boat Crawl,9,0
@@ -48,87 +53,87 @@ Portal Room,14,2
 One Cycle,15,4
 damageless one shot,15,0
 Zero Cycle,15,2
-one deep,17,0
-two deep,17,0
-Woodlight,17,0
-Blacksmith Portal,17,0
-Regular,18,0
-With Sand,18,0
-one deep,19,2
-two deep,19,2
-Woodlight,19,0
-Straight,30,2
-Diagonal,30,2
-Staircase,30,2
-Diagonal Staircase,30,2
-Housing,33,3
-Bridge,33,3
-Treasure,33,3
-Housing,33,2
-Chest Looting,33,0
-bed axe sword,34,0
-golden carrots,34,0
-gapple,34,0
-Blaze Bed,37,2
-Blaze TNT,37,1
-Hallway Hunger Reset,45,0
-PR Hunger Reset,46,0
-Portal Completion,46,0
-Exit Buried,49,2
-Front,49,2
-Back,49,2
-Plus 1,49,2
-Falling Boat Clutch,49,0
-Top-Down,63,3
-Manhunt,63,2
-TNT Chalice,64,2
-Donkey Kong,64,3
-Soog,64,3
-Jimbo James,64,0
-Traditional,65,3
-TNT Variant,65,0
-Glowdar Variant,65,0
-Triple,66,2
-Gap,66,2
-Diagonal,77,2
-Straight,77,2
-Diagonal,78,2
-Straight,78,2
-Traditional,81,3
-Lava Housing,81,0
-Dry,82,2
-Wet,82,1
-Lava Housing,82,0
-Chalice Craft,83,2
-Middle Triple,90,3
-Left Triple,90,2
-Right Triple,90,2
-Traditional,91,3
-Beef Salad,91,0
-Crispy,91,0
-Small Boy,92,2
-Small Cage,92,2
-Tall Cage,92,2
-M85,92,2
-M88,92,2
-M91,92,2
-T94,92,2
-T97,92,2
-T100,92,2
-Tall Boy,92,2
-Small Boy,94,2
-Small Cage,94,2
-Tall Cage,94,2
-M85,94,2
-M88,94,2
-M91,94,2
-T94,94,2
-T97,94,2
-T100,94,2
-Tall Boy,94,2
-To Gap,103,0
-To Middle Double,103,2
-To Middle Single,103,2
-To Gap,104,0
-To Middle Double,104,2
-To Middle Single,104,2
+one deep,17,4
+two deep,17,4
+Woodlight,17,3
+Blacksmith Wood Light,17,0
+Regular,21,0
+With Sand,21,0
+one deep,22,4
+two deep,22,4
+Woodlight,22,3
+Straight,35,2
+Diagonal,35,2
+Staircase,35,2
+Diagonal Staircase,35,2
+Housing,38,3
+Bridge,38,3
+Treasure,38,3
+Housing,38,2
+Chest Looting,38,0
+bed axe sword,39,0
+golden carrots,39,0
+gapple,39,0
+Blaze Bed,42,2
+Blaze TNT,42,1
+Hallway Hunger Reset,50,0
+PR Hunger Reset,51,0
+Portal Completion,51,0
+Exit Buried,54,2
+Front,54,2
+Back,54,2
+Plus 1,54,2
+Falling Boat Clutch,54,0
+Top-Down,68,3
+Manhunt,68,2
+TNT Chalice,69,2
+Donkey Kong,69,3
+Soog,69,3
+Jimbo James,69,0
+Traditional,70,3
+TNT Variant,70,0
+Glowdar Variant,70,0
+Triple,71,2
+Gap,71,2
+Diagonal,82,2
+Straight,82,2
+Diagonal,83,2
+Straight,83,2
+Traditional,86,3
+Lava Housing,86,0
+Dry,87,2
+Wet,87,1
+Lava Housing,87,0
+Chalice Craft,88,2
+Middle Triple,95,3
+Left Triple,95,2
+Right Triple,95,2
+Traditional,96,3
+Beef Salad,96,0
+Crispy,96,0
+Small Boy,97,2
+Small Cage,97,2
+Tall Cage,97,2
+M85,97,2
+M88,97,2
+M91,97,2
+T94,97,2
+T97,97,2
+T100,97,2
+Tall Boy,97,2
+Small Boy,99,2
+Small Cage,99,2
+Tall Cage,99,2
+M85,99,2
+M88,99,2
+M91,99,2
+T94,99,2
+T97,99,2
+T100,99,2
+Tall Boy,99,2
+To Gap,108,0
+To Middle Double,108,2
+To Middle Single,108,2
+To Gap,109,0
+To Middle Double,109,2
+To Middle Single,109,2
