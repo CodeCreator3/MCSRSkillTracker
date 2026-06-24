@@ -1,19 +1,19 @@
-Minecraft Speedrun,-1,3
-Overworld,0,3
-Nether,0,2
+Minecraft Speedrun,-1,3,https://www.twitch.tv/videos/2794064468?t=1h24m42s
+Overworld,0,3,https://www.twitch.tv/videos/2794064468?t=1h24m42s
+Nether,0,2,https://www.twitch.tv/videos/2794064468?t=1h26m24s
 Endgame,0,3
 Village,1,2
-Desert Temple,1,3
+Desert Temple,1,3,https://www.twitch.tv/videos/2794064468?t=1h24m42s
 Shipwreck,1,3
-Buried Treasure,1,2
+Buried Treasure,1,2,https://www.twitch.tv/videos/2794064468?t=1h35m22s
 Ruined Portal,1,3
-Terrain to Bastion,2,3
-Bastion,2,3
-Terrain to Fortress,2,2
-Fortress,2,3
-Blind,2,2
-Stronghold,3,2
-End,3,3
+Terrain to Bastion,2,3,https://www.twitch.tv/videos/2794064468?t=1h26m24s
+Bastion,2,3,https://www.twitch.tv/videos/2794064468?t=1h27m36s
+Terrain to Fortress,2,2,https://www.twitch.tv/videos/2794064468?t=1h39m48s
+Fortress,2,3,https://www.twitch.tv/videos/2794064468?t=1h31m6s
+Blind,2,2,https://www.twitch.tv/videos/2794064468?t=1h32m54s
+Stronghold,3,2,https://www.twitch.tv/videos/2794064468?t=1h33m23s
+End,3,3,https://www.twitch.tv/videos/2794064468?t=1h33m51s
 Village Crafts,4,5
 Overworld Portal,4,3
 Iron Pick Search Craft,4,3
@@ -21,39 +21,42 @@ Stone Axe Search Craft,4,3
 Hotbar Shuffling,4,0
 DT Looting,5,2
 Overworld Portral,5,2
+Moving Gravel Breaking,5,0,https://www.twitch.tv/videos/2794064468?t=1h26m0s
 Island Crafts,6,3
-Hotbar Shifting,6,2
+Hotbar Shifting,6,2,https://www.twitch.tv/videos/2794064468?t=1h36m32s
 F&S Craft,6,3
-2x1 Portal,6,2
+2x1 Portal,6,2,https://www.twitch.tv/videos/2794064468?t=1h37m3s
 Cave portal,6,0
-Chest Looting,7,2
-BT Crafts,7,2
-Hotbar Shifting,7,2
+Chest Looting,7,2,https://www.twitch.tv/videos/2794064468?t=1h35m22s
+BT Crafts,7,2,https://www.twitch.tv/videos/2794064468?t=1h36m13s
+Hotbar Shifting,7,2,https://www.twitch.tv/videos/2794064468?t=1h36m32s
 F&S Craft,7,3
 2x1 Portal,7,2
 Cave Portal,7,0
 RP Completions,8,1
 Speed Bridging,9,2
 Boat Crawl,9,0
-Moving Boat Clutch,9,0
-Route,10,3
+Moving Boat Clutch,9,0,https://www.twitch.tv/videos/2794064468?t=1h27m9s
+Route,10,3,https://www.twitch.tv/videos/2794064468?t=1h27m36s
 Bastion Crafts,10,2
-Bottom Treasure,10,0
-Pearl Hang,10,2
-Spawner,12,2
-Precrafts,12,5
-Open Portal,12,0
-Eye Measure,12,2
+Bottom Treasure,10,0,https://www.twitch.tv/videos/2794064468?t=1h29m18s
+Pearl Hang,10,2,https://www.twitch.tv/videos/2794064468?t=1h29m1s
+Piedar,10,0,https://www.twitch.tv/videos/2794064468?t=1h38m50s
+Spawner,12,2,https://www.twitch.tv/videos/2794064468?t=1h31m22s
+Precrafts,12,5,https://www.twitch.tv/videos/2794064468?t=1h41m56s
+Eye Craft,12,0,https://www.twitch.tv/videos/2794064468?t=1h43m48s
+Open Portal,12,0,https://www.twitch.tv/videos/2794064468?t=1h32m9s
+Eye Measure,12,2,https://www.twitch.tv/videos/2794064468?t=1h32m20s
 Boat Crawl,13,0
 Buried Portal,13,0
 Bridge Portal,13,0
-Open Portal,13,0
-Navigation/Preemptive,14,2
-Portal Room,14,2
+Open Portal,13,0,https://www.twitch.tv/videos/2794064468?t=1h44m55s
+Navigation/Preemptive,14,2,https://www.twitch.tv/videos/2794064468?t=1h33m23s
+Portal Room,14,2,https://www.twitch.tv/videos/2794064468?t=1h33m35s
 One Cycle,15,4
 damageless one shot,15,0
-Zero Cycle,15,2
-one deep,17,4
+Zero Cycle,15,2,https://www.twitch.tv/videos/2794064468?t=1h33m51s
+one deep,17,4,https://www.twitch.tv/videos/2794064468?t=1h26m9s
 two deep,17,4
 Woodlight,17,3
 Blacksmith Wood Light,17,0
@@ -62,78 +65,78 @@ With Sand,21,0
 one deep,22,4
 two deep,22,4
 Woodlight,22,3
-Straight,35,2
-Diagonal,35,2
-Staircase,35,2
-Diagonal Staircase,35,2
-Housing,38,3
-Bridge,38,3
-Treasure,38,3
-Housing,38,2
-Chest Looting,38,0
-bed axe sword,39,0
-golden carrots,39,0
-gapple,39,0
-Blaze Bed,42,2
-Blaze TNT,42,1
-Hallway Hunger Reset,50,0
-PR Hunger Reset,51,0
-Portal Completion,51,0
-Exit Buried,54,2
-Front,54,2
-Back,54,2
-Plus 1,54,2
-Falling Boat Clutch,54,0
-Top-Down,68,3
-Manhunt,68,2
-TNT Chalice,69,2
-Donkey Kong,69,3
-Soog,69,3
-Jimbo James,69,0
-Traditional,70,3
-TNT Variant,70,0
-Glowdar Variant,70,0
-Triple,71,2
-Gap,71,2
-Diagonal,82,2
-Straight,82,2
-Diagonal,83,2
-Straight,83,2
-Traditional,86,3
-Lava Housing,86,0
-Dry,87,2
-Wet,87,1
-Lava Housing,87,0
-Chalice Craft,88,2
-Middle Triple,95,3
-Left Triple,95,2
-Right Triple,95,2
-Traditional,96,3
-Beef Salad,96,0
-Crispy,96,0
-Small Boy,97,2
-Small Cage,97,2
-Tall Cage,97,2
-M85,97,2
-M88,97,2
-M91,97,2
-T94,97,2
-T97,97,2
-T100,97,2
-Tall Boy,97,2
-Small Boy,99,2
-Small Cage,99,2
-Tall Cage,99,2
-M85,99,2
-M88,99,2
-M91,99,2
-T94,99,2
-T97,99,2
-T100,99,2
-Tall Boy,99,2
-To Gap,108,0
-To Middle Double,108,2
-To Middle Single,108,2
-To Gap,109,0
-To Middle Double,109,2
-To Middle Single,109,2
+Straight,36,2,https://www.twitch.tv/videos/2794064468?t=1h27m1s
+Diagonal,36,2
+Staircase,36,2,https://www.twitch.tv/videos/2794064468?t=1h26m50s
+Diagonal Staircase,36,2
+Housing,39,3
+Bridge,39,3
+Treasure,39,3,https://www.twitch.tv/videos/2794064468?t=1h27m36s
+Stables,39,2,https://www.twitch.tv/videos/2794064468?t=1h37m28s
+Chest Looting,39,0,https://www.twitch.tv/videos/2794064468?t=1h28m40s
+bed axe sword,40,0
+golden carrots,40,0
+gapple,40,0
+Blaze Bed,44,2,https://www.twitch.tv/videos/2794064468?t=1h41m29s
+Blaze TNT,44,1,https://www.twitch.tv/videos/2794064468?t=1h31m36s
+Hallway Hunger Reset,53,0
+PR Hunger Reset,54,0
+Portal Completion,54,0,https://www.twitch.tv/videos/2794064468?t=1h33m48s
+Exit Buried,57,2
+Front,57,2
+Back,57,2,https://www.twitch.tv/videos/2794064468?t=1h33m51s
+Plus 1,57,2,https://www.twitch.tv/videos/2794064468?t=1h34m12s
+Falling Boat Clutch,57,0
+Top-Down,71,3
+Manhunt,71,2
+TNT Chalice,72,2
+Donkey Kong,72,3
+Soog,72,3
+Jimbo James,72,0
+Traditional,73,3
+TNT Variant,73,0,https://www.twitch.tv/videos/2794064468?t=1h28m19s
+Glowdar Variant,73,0
+Triple,74,2,https://www.twitch.tv/videos/2794064468?t=1h37m28s
+Gap,74,2,https://www.twitch.tv/videos/2794064468?t=1h38m21s
+Diagonal,85,2
+Straight,85,2
+Diagonal,86,2,https://www.twitch.tv/videos/2794064468?t=1h33m51s
+Straight,86,2
+Traditional,89,3
+Lava Housing,89,0
+Dry,90,2
+Wet,90,1
+Lava Housing,90,0
+Chalice Craft,91,2
+Middle Triple,98,3
+Left Triple,98,2,https://www.twitch.tv/videos/2794064468?t=1h37m28s
+Right Triple,98,2
+Traditional,99,3
+Beef Salad,99,0
+Crispy,99,0,https://www.twitch.tv/videos/2794064468?t=1h38m21s
+Small Boy,100,2
+Small Cage,100,2
+Tall Cage,100,2
+M85,100,2
+M88,100,2
+M91,100,2
+T94,100,2
+T97,100,2
+T100,100,2
+Tall Boy,100,2
+Small Boy,102,2
+Small Cage,102,2
+Tall Cage,102,2
+M85,102,2
+M88,102,2
+M91,102,2
+T94,102,2,https://www.twitch.tv/videos/2794064468?t=1h33m51s
+T97,102,2
+T100,102,2
+Tall Boy,102,2
+To Gap,111,0
+To Middle Double,111,2
+To Middle Single,111,2,https://www.twitch.tv/videos/2794064468?t=1h37m28s
+To Gap,112,0
+To Middle Double,112,2
+To Middle Single,112,2

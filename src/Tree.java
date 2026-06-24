@@ -30,11 +30,11 @@ public class Tree {
                 String line = scanner.nextLine();
                 String[] data = line.split(",");
                 if(Integer.parseInt(data[1]) == -1){
-                    this.root = new Node(data[0], SkillLevel.values()[Integer.parseInt(data[2])]);
+                    this.root = new Node(data[0], SkillLevel.values()[Integer.parseInt(data[2])], data.length > 3 ? data[3] : null);
                 } else {
                     Node parent = findNode(Integer.parseInt(data[1]));
                     if(parent != null){
-                        parent.addChild(new Node(data[0], SkillLevel.values()[Integer.parseInt(data[2])]));
+                        parent.addChild(new Node(data[0], SkillLevel.values()[Integer.parseInt(data[2])], data.length > 3 ? data[3] : null));
                     }
                 }
             }
@@ -82,7 +82,7 @@ public class Tree {
         while (!queue.isEmpty()) {
             Node current = queue.poll();
             int parentId = current.getParent() == null ? -1 : ids.getOrDefault(current.getParent(), -1);
-            lines.add(current.getSkill() + "," + parentId + "," + current.getSkillLevel().ordinal());
+            lines.add(current.getSkill() + "," + parentId + "," + current.getSkillLevel().ordinal() + (current.getURL().isPresent() ? "," : "") + current.getURL().orElse(""));
             queue.addAll(current.getChildren());
         }
 

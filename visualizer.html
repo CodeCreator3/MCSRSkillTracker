@@ -106,6 +106,7 @@
       <button id="move-left">◀</button>
       <button id="add-child">+</button>
       <button id="rename-node">✏</button>
+      <button id="link-node">🔗</button>
       <button id="move-right">▶</button>
       <button id="delete-node">🗑</button>
     </div>
@@ -132,6 +133,7 @@
     const addChildButton = document.getElementById('add-child');
     const renameNodeButton = document.getElementById('rename-node');
     const deleteNodeButton = document.getElementById('delete-node');
+    const linkNodeButton = document.getElementById('link-node');
     const svg = document.getElementById('canvas');
     let transformGroup = null;
 
@@ -156,6 +158,10 @@
       if (confirm('Delete this skill and all children?')) {
         mutateNode('delete', hoveredNode.path);
       }
+    });
+    linkNodeButton.addEventListener('click', () => {
+      if (!hoveredNode || !hoveredNode.url) return;
+      window.open(hoveredNode.url, '_blank');
     });
     actions.addEventListener('mouseenter', () => { if (hideTimeout) clearTimeout(hideTimeout); });
     actions.addEventListener('mouseleave', scheduleHideActions);
@@ -196,8 +202,8 @@
       if (!isDragging) return;
       const deltaX = event.clientX - lastMouseX;
       const deltaY = event.clientY - lastMouseY;
-      panX += deltaX * 10;
-      panY += deltaY * 10;
+      panX += deltaX * 12;
+      panY += deltaY * 12;
       lastMouseX = event.clientX;
       lastMouseY = event.clientY;
       updateTransform();
@@ -312,8 +318,7 @@
       actions.style.top = `${y - 10}px`;
       actions.classList.remove('hidden');
       moveLeftButton.style.display = node.siblingIndex > 0 ? 'inline-flex' : 'none';
-      moveRightButton.style.display = node.path.length > 0 && node.siblingIndex < node.siblingCount - 1 ? 'inline-flex' : 'none';
-    }
+      moveRightButton.style.display = node.path.length > 0 && node.siblingIndex < node.siblingCount - 1 ? 'inline-flex' : 'none';      linkNodeButton.style.display = node.url ? 'inline-flex' : 'none';    }
 
     function scheduleHideActions() {
       if (hideTimeout) clearTimeout(hideTimeout);

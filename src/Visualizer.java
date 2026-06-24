@@ -74,6 +74,10 @@ public class Visualizer {
         out.append('{');
         appendJsonProperty(out, "label", node.getSkill());
         appendJsonProperty(out, "color", colorToHex(node.getSkillLevel()));
+        node.getURL().ifPresentOrElse(
+            url -> appendJsonProperty(out, "url", url),
+            () -> out.append("\"url\":null,")
+        );
         out.append("\"children\":");
         out.append('[');
         List<Node> children = node.getChildren();
@@ -207,7 +211,7 @@ public class Visualizer {
                 }
                 case "addChild" -> {
                     if (target != null && name != null && !name.isBlank()) {
-                        target.addChild(new Node(name.trim(), Tree.SkillLevel.COAL));
+                        target.addChild(new Node(name.trim(), Tree.SkillLevel.COAL, null));
                         changed = true;
                     }
                 }

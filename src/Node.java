@@ -1,14 +1,17 @@
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Node {
     private ArrayList<Node> children;
     private String skill;
     private Tree.SkillLevel skillLevel;
     private Node parent;
+    private String URL;
 
-    public Node(String skill, Tree.SkillLevel skillLevel) {
+    public Node(String skill, Tree.SkillLevel skillLevel, String URL) {
         this.skill = skill;
         this.skillLevel = skillLevel;
+        this.URL = URL;
         children = new ArrayList<>();
     }
 
@@ -61,7 +64,11 @@ public class Node {
         return parent.getChildren().indexOf(this);
     }
 
+    public Optional<String> getURL(){
+        return Optional.ofNullable(URL);
+    }
+
     public String toString(){
-        return skill + " " + skillLevel;
+        return skill + " " + skillLevel + " " + (URL!=null ? URL : "");
     }
 }
