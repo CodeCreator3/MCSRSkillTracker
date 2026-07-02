@@ -45,8 +45,8 @@ Pearl Hang,10,2,https://www.twitch.tv/videos/2794064468?t=1h29m1s
 Piedar,10,0,https://www.twitch.tv/videos/2794064468?t=1h38m50s
 Spawner,12,2,https://www.twitch.tv/videos/2794064468?t=1h31m22s
 Precrafts,12,5,https://www.twitch.tv/videos/2794064468?t=1h41m56s
-Eye Craft,12,0,https://www.twitch.tv/videos/2794064468?t=1h43m48s
-Open Portal,12,0,https://www.twitch.tv/videos/2794064468?t=1h32m9s
+Eye Craft,12,3,https://www.twitch.tv/videos/2794064468?t=1h43m48s
+Open Portal,12,3,https://www.twitch.tv/videos/2794064468?t=1h32m9s
 Eye Measure,12,2,https://www.twitch.tv/videos/2794064468?t=1h32m20s
 Boat Crawl,13,3
 Soul Sand Speed Bridging,13,3
