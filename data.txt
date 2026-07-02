@@ -46,13 +46,13 @@ Piedar,10,0,https://www.twitch.tv/videos/2794064468?t=1h38m50s
 Spawner,12,2,https://www.twitch.tv/videos/2794064468?t=1h31m22s
 Precrafts,12,5,https://www.twitch.tv/videos/2794064468?t=1h41m56s
 Eye Craft,12,3,https://www.twitch.tv/videos/2794064468?t=1h43m48s
-Open Portal,12,3,https://www.twitch.tv/videos/2794064468?t=1h32m9s
+Open Portal,12,3,https://youtu.be/FEB1k9Je8rM?si=k7IJ2HESARFAJI2L&t=232
 Eye Measure,12,2,https://www.twitch.tv/videos/2794064468?t=1h32m20s
 Boat Crawl,13,3
 Soul Sand Speed Bridging,13,3
-Buried Portal,13,3
+Buried Portal,13,3,https://youtu.be/FEB1k9Je8rM?si=oFgF8OCckr1-Es0a&t=427
 Bridge Portal,13,3
-Open Portal,13,3,https://www.twitch.tv/videos/2794064468?t=1h44m55s
+Open Portal,13,3,https://youtu.be/FEB1k9Je8rM?si=k7IJ2HESARFAJI2L&t=232
 Navigation/Preemptive,14,2,https://www.twitch.tv/videos/2794064468?t=1h33m23s
 Portal Room,14,2,https://www.twitch.tv/videos/2794064468?t=1h33m35s
 One Cycle,15,4
@@ -67,10 +67,10 @@ With Sand,22,1
 one deep,23,4
 two deep,23,4
 Woodlight,23,3
-1 deep,28,4,https://www.twitch.tv/videos/2790021295?t=1h45m41s
-2 deep,28,4,https://www.twitch.tv/videos/2790021295?t=1h15m37s
-1 deep,34,4,https://www.twitch.tv/videos/2790021295?t=1h45m41s
-2 deep,34,4,https://www.twitch.tv/videos/2790021295?t=1h15m37s
+1 deep,28,4,https://youtu.be/FEB1k9Je8rM?si=ilTQi8IzIYKIejtz&t=191
+2 deep,28,4,https://youtu.be/FEB1k9Je8rM?si=LjzaJEYvBoekvwIz&t=43
+1 deep,34,4,https://youtu.be/FEB1k9Je8rM?si=ilTQi8IzIYKIejtz&t=191
+2 deep,34,4,https://youtu.be/FEB1k9Je8rM?si=LjzaJEYvBoekvwIz&t=43
 Straight,37,2,https://www.twitch.tv/videos/2794064468?t=1h27m1s
 Diagonal,37,2
 Staircase,37,2,https://www.twitch.tv/videos/2794064468?t=1h26m50s
@@ -126,32 +126,34 @@ Traditional,110,3
 Beef Salad,110,0
 Crispy,110,0,https://www.twitch.tv/videos/2794064468?t=1h38m21s
 Small Boy,111,2,https://www.twitch.tv/videos/2794311051?t=3h48m56s
-Small Cage,111,2
-Tall Cage,111,2,https://www.twitch.tv/videos/2794311051?t=3h42m9s
-M85,111,2
+Small Cage,111,2,https://youtu.be/FEB1k9Je8rM?si=DrnoJc4FI1F32uzA&t=580
+Tall Cage,111,2,https://youtu.be/FEB1k9Je8rM?si=Vja7aIJuvLMeteLg&t=609
+M85,111,2,https://youtu.be/FEB1k9Je8rM?si=BWXZWHIHV9zKD1XT&t=753
 M88,111,2,https://www.twitch.tv/videos/2794311051?t=3h53m28s
 M91,111,2
 T94,111,2,https://www.twitch.tv/videos/2805127640?t=4h13m23s
 T97,111,2
-T100,111,2
+T100,111,2,https://youtu.be/FEB1k9Je8rM?si=Xiyvr_kdZmAC-xxi&t=869
 Tall Boy,111,2,https://www.twitch.tv/videos/2805127640?t=6h4m3s
 Short Tower,112,2
 Tall Tower,112,2,https://www.twitch.tv/videos/2794311051?t=3h38m39s
-Small Boy,113,2
-Small Cage,113,2,https://www.twitch.tv/videos/2798011990?t=2h30m36s
-Tall Cage,113,2
-M85,113,2
-M88,113,2,https://www.twitch.tv/videos/2805127640?t=4h51m23s
+Small Boy,113,2,https://youtu.be/FEB1k9Je8rM?si=U3Ykw9Ebfz0ynbvu&t=905
+Small Cage,113,2,https://youtu.be/FEB1k9Je8rM?si=HO3ej0LYDHs9Ua7Q&t=2154
+Tall Cage,113,2,https://youtu.be/FEB1k9Je8rM?si=JmYGh0qRuurXzVDr&t=819
+M85,113,2,https://youtu.be/FEB1k9Je8rM?si=BWXZWHIHV9zKD1XT&t=753
+M88,113,2,https://youtu.be/FEB1k9Je8rM?si=FdxpcysmvPefAI43&t=717
 M91,113,2,https://www.twitch.tv/videos/2805127640?t=5h15m38s
 T94,113,2,https://www.twitch.tv/videos/2794064468?t=1h33m51s
 T97,113,2,https://www.twitch.tv/videos/2798011990?t=2h5m13s
 T100,113,2
 Tall Boy,113,2
 Short Tower,114,2
-Tall Tower,114,2
+Tall Tower,114,2,https://youtu.be/FEB1k9Je8rM?si=_awwh3AeBvDyNiPr&t=784
 To Gap,122,0
 To Middle Double,122,2
 To Middle Single,122,2,https://www.twitch.tv/videos/2794064468?t=1h37m28s
 To Gap,123,0
 To Middle Double,123,2
 To Middle Single,123,2
+Bottom Setup,136,2,https://youtu.be/FEB1k9Je8rM?si=lgr4R_pQmZE0yVOj&t=465
+Top Setup,136,2,https://www.twitch.tv/videos/2805127640?t=6h4m3s
