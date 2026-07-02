@@ -75,15 +75,15 @@ public class Visualizer {
         appendJsonProperty(out, "label", node.getSkill());
         appendJsonProperty(out, "color", colorToHex(node.getSkillLevel()));
         node.getURL().ifPresentOrElse(
-            url -> appendJsonProperty(out, "url", url),
-            () -> out.append("\"url\":null,")
-        );
+                url -> appendJsonProperty(out, "url", url),
+                () -> out.append("\"url\":null,"));
         out.append("\"children\":");
         out.append('[');
         List<Node> children = node.getChildren();
         for (int i = 0; i < children.size(); i++) {
             serializeNode(out, children.get(i));
-            if (i + 1 < children.size()) out.append(',');
+            if (i + 1 < children.size())
+                out.append(',');
         }
         out.append(']');
         out.append('}');
@@ -100,15 +100,26 @@ public class Visualizer {
     }
 
     private static String escapeJson(String text) {
-        if (text == null) return "";
+        if (text == null)
+            return "";
         StringBuilder escaped = new StringBuilder();
         for (char c : text.toCharArray()) {
             switch (c) {
-                case '\\': escaped.append("\\\\"); break;
-                case '"': escaped.append("\\\""); break;
-                case '\n': escaped.append("\\n"); break;
-                case '\r': escaped.append("\\r"); break;
-                case '\t': escaped.append("\\t"); break;
+                case '\\':
+                    escaped.append("\\\\");
+                    break;
+                case '"':
+                    escaped.append("\\\"");
+                    break;
+                case '\n':
+                    escaped.append("\\n");
+                    break;
+                case '\r':
+                    escaped.append("\\r");
+                    break;
+                case '\t':
+                    escaped.append("\\t");
+                    break;
                 default:
                     if (c < 0x20 || c > 0x7E) {
                         escaped.append(String.format("\\u%04x", (int) c));
@@ -209,6 +220,12 @@ public class Visualizer {
                         changed = true;
                     }
                 }
+                case "changeURL" -> {
+                    if (target != null) {
+                        target.setURL(name != null && !name.isBlank() ? name.trim() : null);
+                        changed = true;
+                    }
+                }
                 case "addChild" -> {
                     if (target != null && name != null && !name.isBlank()) {
                         target.addChild(new Node(name.trim(), Tree.SkillLevel.COAL, null));
@@ -242,7 +259,8 @@ public class Visualizer {
         private static Map<String, String> parseFormData(String body) {
             Map<String, String> result = new HashMap<>();
             for (String pair : body.split("&")) {
-                if (pair.isBlank()) continue;
+                if (pair.isBlank())
+                    continue;
                 String[] parts = pair.split("=", 2);
                 String key = urlDecode(parts[0]);
                 String value = parts.length > 1 ? urlDecode(parts[1]) : "";

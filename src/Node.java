@@ -29,11 +29,11 @@ public class Node {
         return children.remove(child);
     }
 
-    public ArrayList<Node> getChildren(){
+    public ArrayList<Node> getChildren() {
         return children;
     }
 
-    public String getSkill(){
+    public String getSkill() {
         return skill;
     }
 
@@ -41,7 +41,7 @@ public class Node {
         this.skill = skill;
     }
 
-    public Tree.SkillLevel getSkillLevel(){
+    public Tree.SkillLevel getSkillLevel() {
         return skillLevel;
     }
 
@@ -64,11 +64,15 @@ public class Node {
         return parent.getChildren().indexOf(this);
     }
 
-    public Optional<String> getURL(){
+    public Optional<String> getURL() {
         return Optional.ofNullable(URL);
     }
 
-    public String toString(){
-        return skill + " " + skillLevel + " " + (URL!=null ? URL : "");
+    public void setURL(String URL) {
+        this.URL = URL;
+    }
+
+    public String toString() {
+        return skill + " " + skillLevel + " " + (URL != null ? URL : "");
     }
 }

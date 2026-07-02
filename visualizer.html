@@ -163,6 +163,13 @@
       if (!hoveredNode || !hoveredNode.url) return;
       window.open(hoveredNode.url, '_blank');
     });
+    document.addEventListener('paste', event => {
+      if (!hoveredNode) return;
+      event.preventDefault();
+      const text = event.clipboardData.getData('text').trim();
+      if (!text) return;
+      mutateNode('changeURL', hoveredNode.path, text);
+    });
     actions.addEventListener('mouseenter', () => { if (hideTimeout) clearTimeout(hideTimeout); });
     actions.addEventListener('mouseleave', scheduleHideActions);
 
@@ -318,7 +325,8 @@
       actions.style.top = `${y - 10}px`;
       actions.classList.remove('hidden');
       moveLeftButton.style.display = node.siblingIndex > 0 ? 'inline-flex' : 'none';
-      moveRightButton.style.display = node.path.length > 0 && node.siblingIndex < node.siblingCount - 1 ? 'inline-flex' : 'none';      linkNodeButton.style.display = node.url ? 'inline-flex' : 'none';    }
+      moveRightButton.style.display = node.path.length > 0 && node.siblingIndex < node.siblingCount - 1 ? 'inline-flex' : 'none'; linkNodeButton.style.display = node.url ? 'inline-flex' : 'none';
+    }
 
     function scheduleHideActions() {
       if (hideTimeout) clearTimeout(hideTimeout);
